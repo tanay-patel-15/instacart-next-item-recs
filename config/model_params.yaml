@@ -1,0 +1,46 @@
+# Model Hyperparameters Configuration
+# FP-Growth Association Rule Mining
+
+fp_growth:
+  # Minimum support: fraction of transactions containing itemset
+  # Lower values = more rules but slower training
+  min_support: 0.01
+  
+  # Minimum confidence: P(consequent | antecedent)
+  # Higher values = more reliable rules
+  min_confidence: 0.3
+  
+  # Minimum lift: confidence / P(consequent)
+  # Lift > 1 means positive correlation
+  min_lift: 1.5
+
+# Recommendation Scoring Parameters
+scoring:
+  # Number of top recommendations to generate per basket
+  top_k: 10
+  
+  # Weight for popularity prior in scoring
+  # 0.0 = pure rule-based, 1.0 = pure popularity
+  popularity_weight: 0.2
+  
+  # Diversity penalty: penalize items from same aisle
+  diversity_penalty: 0.1
+
+# Evaluation Parameters
+evaluation:
+  # Hit-rate evaluation at different K values
+  hit_rate_k_values: [5, 10, 20]
+  
+  # Minimum number of test baskets required
+  min_test_baskets: 10000
+
+# Data Processing Parameters
+data:
+  # Minimum basket size to include in training
+  min_basket_size: 2
+  
+  # Maximum basket size (filter outliers)
+  max_basket_size: 100
+  
+  # Minimum product frequency (filter rare products)
+  min_product_frequency: 10
